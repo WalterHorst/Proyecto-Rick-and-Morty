@@ -1,8 +1,9 @@
 import Card from './Card';
+import "./Cards.css";
 
-export default function Cards({characters}) {
+export default function Cards({characters, onClose}) {
    return (
-   <div>
+   <div className='Cards'>
       {
          characters.map(({id, name, status, species, gender, origin, image})=>{
             return(
@@ -15,7 +16,7 @@ export default function Cards({characters}) {
                gender={gender} 
                origin={origin.name} 
                image={image}
-               onClose={() => window.alert('Emulamos que se cierra la card')}
+               onClose={onClose}
                ></Card>
             )
          })

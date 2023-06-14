@@ -1,0 +1,7 @@
+.Nav{
+   background-color: bisque;
+   height: 58px;;
+   display: flex;
+   justify-content: flex-end; 
+
+}
