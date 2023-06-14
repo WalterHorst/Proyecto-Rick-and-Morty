@@ -6,12 +6,14 @@ import axios from "axios";
 
 
 function App() {
-   const [characters, setCharaters] = useState([])
+   const [characters, setCharacters] = useState([])
 
    function onSearch(id) {
       axios(`https://rickandmortyapi.com/api/character/${id}`).then(({ data }) => {
          if (data.name) {
-            setCharaters((oldChars) => [...oldChars, data]);
+            const char = characters.find((ch)=>ch.id === Number(id))
+            if(char)return alert("El personaje ya fue seleccionado!")
+            setCharacters((oldChars) => [...oldChars, data]);
          } else {
             window.alert('¡No hay personajes con este ID!');
          }
@@ -20,7 +22,7 @@ function App() {
 
    const onClose = (id)=>{
       const charactersFiltered = characters.filter(character => character.id !== Number(id))
-      setCharaters(charactersFiltered)
+      setCharacters(charactersFiltered)
    }
 
    return (
