@@ -3,6 +3,7 @@ import Cards from './components/Cards.jsx';
 import { useState } from 'react';
 import Nav from './components/Nav';
 import axios from "axios"; 
+import {Routes, Route} from "react-router-dom";
 
 
 function App() {
