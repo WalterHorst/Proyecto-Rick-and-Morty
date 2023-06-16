@@ -2,5 +2,7 @@ Button{
     cursor: pointer;
     background-color: rgba(127, 255, 212, 0.568);
     padding: 0.1rem;
+    margin: .5rem;
+
 }
 

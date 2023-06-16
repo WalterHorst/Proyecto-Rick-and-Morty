@@ -13,14 +13,7 @@ export default function Card({
 }) {
   return (
     <div className="Card">
-      <button
-        onClick={() => {
-          onClose(id);
-        }}
-      >
-        {" "}
-        X{" "}
-      </button>
+      <button onClick={() => {onClose(id); }}> X</button>
       <NavLink to={`/details/${id}`}>
         <h2>Name: {name}</h2>
       </NavLink>

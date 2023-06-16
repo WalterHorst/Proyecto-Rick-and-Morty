@@ -11,6 +11,9 @@ const Nav = ({ onSearch }) => {
       <button className="Button">
         <NavLink to={"/about"}>About</NavLink>
       </button>
+      <button>
+        <NavLink to={"/"}>Log out</NavLink>
+      </button>
       <SearchBar onSearch={onSearch}></SearchBar>
     </div>
   );
