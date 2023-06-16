@@ -4,6 +4,8 @@ import { useState } from 'react';
 import Nav from './components/Nav';
 import axios from "axios"; 
 import {Routes, Route} from "react-router-dom";
+import About from './components/About';
+import Details from './components/Details';
 
 
 function App() {
@@ -29,7 +31,12 @@ function App() {
    return (
       <div className='App'>
          <Nav onSearch = {onSearch}></Nav>
-         <Cards characters={characters} onClose = {onClose} />
+         <Routes>
+            <Route path="/about" element={<About/>} ></Route>
+            <Route path="/home" element={<Cards characters={characters} onClose = {onClose} />}></Route>
+            <Route path="/details/:id" element={<Details/>}></Route>
+         </Routes>
+         
       
       </div>
    );

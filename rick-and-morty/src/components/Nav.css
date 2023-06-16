@@ -1,7 +1,10 @@
 .Nav{
-   background-color: rgba(4, 2, 27, 0.623);
+   background-color: rgba(4, 2, 27, 0.719);
    height: 58px;;
    display: flex;
    justify-content: flex-end; 
 
+}
+.button{
+   border-radius: 8px;
 }

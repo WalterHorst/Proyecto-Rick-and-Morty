@@ -1,5 +1,6 @@
 import "./SearchBar.css";
 import { useState } from "react";
+import { NavLink } from "react-router-dom";
 
 
 export default function SearchBar({onSearch}) {
@@ -14,8 +15,9 @@ export default function SearchBar({onSearch}) {
    return (
       <div>
          <input type='search' placeholder="Id" onChange={handleChange} value={id}/>
-         <button className="Button" onClick={()=>{onSearch(id); setId("")}}>Agregar</button>
-         <button className="Button" onClick={ramdonCharacter}>Random character</button>
+         <button className="full-rounded" onClick={()=>{onSearch(id); setId("")}}>Agregar</button>
+         <button className="full-rounded" onClick={ramdonCharacter}>Random character</button>
+
       </div>
    );
 }

@@ -1,2 +1,5 @@
 .Cards{
+   display: flex;
+   flex-flow: wrap;
+  
 }
