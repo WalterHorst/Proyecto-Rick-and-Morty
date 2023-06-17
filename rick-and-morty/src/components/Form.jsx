@@ -48,7 +48,7 @@ const Form = ({ login }) => {
           value={userData.password}
         ></input>
         {errors.password && <p className="p">{errors.password}</p>}
-        <button>Submit</button>
+        <button>Log in</button>
       </form>
     </div>
   );

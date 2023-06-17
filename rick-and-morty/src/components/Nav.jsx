@@ -5,16 +5,18 @@ import { NavLink } from "react-router-dom";
 const Nav = ({ onSearch }) => {
   return (
     <div className="Nav">
-      <button className="Button">
-        <NavLink to={"/home"}>Home</NavLink>
-      </button>
-      <button className="Button">
-        <NavLink to={"/about"}>About</NavLink>
-      </button>
+      <span>
+        <button className="Button">
+          <NavLink to={"/home"}>Home</NavLink>
+        </button>
+        <button className="Button">
+          <NavLink to={"/about"}>About</NavLink>
+        </button>
+      </span>
+      <SearchBar onSearch={onSearch}></SearchBar>
       <button>
         <NavLink to={"/"}>Log out</NavLink>
       </button>
-      <SearchBar onSearch={onSearch}></SearchBar>
     </div>
   );
 };

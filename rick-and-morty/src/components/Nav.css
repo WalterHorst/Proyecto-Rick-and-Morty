@@ -2,8 +2,7 @@
    background-color: rgba(4, 2, 27, 0.719);
    height: 58px;;
    display: flex;
-   justify-content: flex-end; 
-
+   justify-content: space-between;
 }
 .button{
    border-radius: 8px;
