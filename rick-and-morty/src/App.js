@@ -49,7 +49,7 @@ function App() {
 
    return (
       <div className='App'>{
-         location.pathname !=="/"?<Nav onSearch = {onSearch}></Nav>:null
+         location.pathname !=="/"?<Nav onSearch = {onSearch} setAccess={setAccess}></Nav>:null
       }
          <Routes>
             <Route path="/about" element={<About/>} ></Route>
