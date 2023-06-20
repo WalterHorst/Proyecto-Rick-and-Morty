@@ -8,6 +8,7 @@ import About from './components/About';
 import Details from './components/Details';
 import Error from './components/Error';
 import Form from './components/Form';
+import Favorite from './components/Favorites';
 
 const email = "whorst42@gmail.com"
 const password = "walter123"
@@ -57,6 +58,7 @@ function App() {
             <Route path="/details/:id" element={<Details/>}></Route>
             <Route path='/:error' element={<Error/>}> </Route>
             <Route path='/' element={<Form login={login}/>}></Route>
+            <Route path='/favorites' element={<Favorite></Favorite>}></Route>
          </Routes> 
          
       

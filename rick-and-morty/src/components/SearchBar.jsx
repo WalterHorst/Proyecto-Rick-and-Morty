@@ -1,5 +1,6 @@
 import "./SearchBar.css";
 import { useState } from "react";
+import { NavLink } from "react-router-dom";
 
 export default function SearchBar({ onSearch }) {
   const [id, setId] = useState("");
@@ -29,6 +30,9 @@ export default function SearchBar({ onSearch }) {
       </button>
       <button className="full-rounded" onClick={ramdonCharacter}>
         Random character
+      </button>
+      <button>
+        <NavLink to={"/favorites"}>Favoritos</NavLink>
       </button>
     </div>
   );
