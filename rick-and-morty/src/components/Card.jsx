@@ -5,7 +5,16 @@ import { connect } from "react-redux";
 import { useState } from "react";
 import { useEffect } from "react";
 
-function Card({ id, name, onClose, image, addFav, removeFav, myFavorites }) {
+function Card({
+  id,
+  name,
+  onClose,
+  image,
+  addFav,
+  removeFav,
+  myFavorites,
+  gender,
+}) {
   const [isFav, setIsFav] = useState(false);
 
   useEffect(() => {
@@ -22,7 +31,7 @@ function Card({ id, name, onClose, image, addFav, removeFav, myFavorites }) {
       removeFav(id);
     } else {
       setIsFav(true);
-      addFav({ id, name, image, onClose });
+      addFav({ id, name, image, onClose, gender });
     }
   };
 
@@ -40,6 +49,7 @@ function Card({ id, name, onClose, image, addFav, removeFav, myFavorites }) {
         {" "}
         <h2>Name: {name}</h2>
       </NavLink>
+      <h2>Gender:{gender}</h2>
       <img src={image} alt={name} />
     </div>
   );
