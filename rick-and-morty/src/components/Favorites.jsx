@@ -2,6 +2,7 @@ import { connect, useDispatch } from "react-redux";
 import Card from "./Card";
 import { filterCards, orderCards } from "../Redux/Actions";
 import { useState } from "react";
+import "./Favorites.css";
 
 const Favorite = ({ myFavorites }) => {
   const [aux, setAux] = useState(false);
@@ -30,18 +31,20 @@ const Favorite = ({ myFavorites }) => {
         <option value="unknown">unknown</option>
         <option value="alls">Alls</option>
       </select>
-      {myFavorites.map((fav) => {
-        return (
-          <Card
-            key={fav.id}
-            id={fav.id}
-            name={fav.name}
-            gender={fav.gender}
-            image={fav.image}
-            onClose={fav.onClose}
-          ></Card>
-        );
-      })}
+      <div className="favContainer">
+        {myFavorites.map((fav) => {
+          return (
+            <Card
+              key={fav.id}
+              id={fav.id}
+              name={fav.name}
+              gender={fav.gender}
+              image={fav.image}
+              onClose={fav.onClose}
+            ></Card>
+          );
+        })}
+      </div>
     </div>
   );
 };
