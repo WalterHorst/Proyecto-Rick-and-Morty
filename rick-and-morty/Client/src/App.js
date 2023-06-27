@@ -21,7 +21,7 @@ function App() {
 
    
    function onSearch(id) {
-      axios(`https://rickandmortyapi.com/api/character/${id}`).then(({ data }) => {
+      axios(`http://localhost:3001/rickandmorty/character/${id}`).then(({ data }) => {
          if (data.name) {
             const char = characters.find((ch)=>ch.id === Number(id))
             if(char)return alert("El personaje ya fue seleccionado!")
