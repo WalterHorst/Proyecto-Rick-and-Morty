@@ -1,47 +1,52 @@
 import { REMOVE_FAV, FILTER, ORDER } from "./ActionsType";
 import { ADD_FAV } from "./ActionsType";
 
-const initialState ={
-    myFavorites:[],
-    allCharacters:[]
-}
+const initialState = {
+  myFavorites: [],
+  allCharacters: [],
+};
 
+const reducer = (state = initialState, { type, payload }) => {
+  switch (type) {
+    case ADD_FAV:
+      return {
+        ...state,
+        myFavorites: payload,
+        allCharacters: payload,
+      };
 
-const reducer=(state = initialState, {type, payload})=>{
-switch (type) {
-    case ADD_FAV: return{
+    case REMOVE_FAV:
+      return {
         ...state,
-        myFavorites: [...state.allCharacters, payload],
-        allCharacters:[...state.allCharacters, payload]
-    }
-    
-    case REMOVE_FAV: return{
-        ...state,
-        myFavorites: state.myFavorites.filter(fav => fav.id !== Number(payload))
-    }     
+        myFavorites: payload,
+        allCharacters: payload,
+      };
 
     case FILTER:
-    const allCharactersFiltered  = state.allCharacters.filter(character => character.gender === payload)    
-    return{
+      const allCharactersFiltered = state.allCharacters.filter(
+        (character) => character.gender === payload
+      );
+      return {
         ...state,
-        myFavorites: 
-        payload==="alls"?[...state.allCharacters]
-        :allCharactersFiltered,
-    }
+        myFavorites:
+          payload === "alls" ? [...state.allCharacters] : allCharactersFiltered,
+      };
 
     case ORDER:
-        const allCharactersCopy = [...state.allCharacters]
-        return{
-            ...state,
-            myFavorites: payload==="A" ? allCharactersCopy.sort((a,b) => a.id - b.id ) : allCharactersCopy.sort((a,b)=>b.id-a.id),
-        }
+      const allCharactersCopy = [...state.allCharacters];
+      return {
+        ...state,
+        myFavorites:
+          payload === "A"
+            ? allCharactersCopy.sort((a, b) => a.id - b.id)
+            : allCharactersCopy.sort((a, b) => b.id - a.id),
+      };
 
-    default:return{
-        ...state
-    }
-        
-}
-}  
-
+    default:
+      return {
+        ...state,
+      };
+  }
+};
 
 export default reducer;
