@@ -13,6 +13,7 @@ import { REMOVE_FAV } from "./Redux/ActionsType";
 
 const email = "whorst42@gmail.com";
 const password = "walter123";
+const URL = "http://localhost:3001/rickandmorty/login/";
 
 function App() {
   const navigate = useNavigate();
@@ -20,18 +21,19 @@ function App() {
   const location = useLocation();
   const [characters, setCharacters] = useState([]);
 
-  function onSearch(id) {
-    axios(`http://localhost:3001/rickandmorty/character/${id}`).then(
-      ({ data }) => {
-        if (data.name) {
-          const char = characters.find((ch) => ch.id === Number(id));
-          if (char) return alert("El personaje ya fue seleccionado!");
-          setCharacters((oldChars) => [...oldChars, data]);
-        } else {
-          window.alert("¡No hay personajes con este ID!");
-        }
+  async function onSearch(id) {
+    try {
+      const { data } = await axios(
+        `http://localhost:3001/rickandmorty/character/${id}`
+      );
+      if (data.name) {
+        const char = characters.find((ch) => ch.id === Number(id));
+        if (char) return alert("El personaje ya fue seleccionado!");
+        setCharacters((oldChars) => [...oldChars, data]);
       }
-    );
+    } catch (error) {
+      alert("¡No hay personajes con este ID!");
+    }
   }
 
   const onClose = (id) => {
@@ -41,14 +43,18 @@ function App() {
     setCharacters(charactersFiltered);
   };
 
-  function login(userData) {
-    const { email, password } = userData;
-    const URL = "http://localhost:3001/rickandmorty/login/";
-    axios(URL + `?email=${email}&password=${password}`).then(({ data }) => {
+  async function login(userData) {
+    try {
+      const { email, password } = userData;
+      const { data } = await axios(
+        URL + `?email=${email}&password=${password}`
+      );
       const { access } = data;
       setAccess(access);
       access && navigate("/home");
-    });
+    } catch (error) {
+      console.log(error.message);
+    }
   }
 
   useEffect(() => {
